@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/" xmlns:fx="http://javafx.com/fxml/" fx:controller="login.termsPage">
+   <children>
+      <JFXTextArea fx:id="textArea_terms" editable="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="400.0" />
+      <JFXButton fx:id="btn_ignore" layoutX="200.0" layoutY="559.0" onAction="#ignoreTerms" text="不同意" />
+      <JFXButton fx:id="btn_agree" layoutX="156.0" layoutY="559.0" onAction="#agreeTerms" text="同意" />
+   </children>
+</AnchorPane>

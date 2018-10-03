@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXCheckBox?>
+<?import com.jfoenix.controls.JFXProgressBar?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" styleClass="bodybg" stylesheets="@../css/login.css" xmlns="http://javafx.com/javafx/" xmlns:fx="http://javafx.com/fxml/" fx:controller="login.loginPage">
+    <children>
+        <AnchorPane layoutX="173.0" layoutY="78.0" prefHeight="200.0" prefWidth="226.0" styleClass="innerbodybg" stylesheets="@../css/login.css">
+            <effect>
+                <DropShadow blurType="TWO_PASS_BOX" height="15.0" radius="7.0" width="15.0" />
+            </effect>
+        </AnchorPane>
+        <Text layoutX="201.0" layoutY="377.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Copyright © 2018 by Benny Yen" />
+        <Text layoutX="201.0" layoutY="391.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mail: benny123tw@gmail.com" />
+        <JFXTextField fx:id="textField_Account" focusColor="#4aa99f" labelFloat="true" layoutX="223.0" layoutY="109.0" promptText="帳戶" />
+        <JFXTextField fx:id="textField_Password" focusColor="#4aa99f" labelFloat="true" layoutX="223.0" layoutY="163.0" promptText="密碼" />
+        <JFXButton fx:id="btn_Login" layoutX="276.0" layoutY="220.0" onAction="#loginClicked" ripplerFill="RED" stylesheets="@../css/login.css" text="登入" textFill="WHITE" />
+        <JFXButton fx:id="btn_Register" layoutX="330.0" layoutY="220.0" onAction="#registerClicked" ripplerFill="RED" stylesheets="@../css/login.css" text="註冊" />
+        <JFXCheckBox fx:id="checkBox_Rember" checkedColor="#4aa99f" layoutX="195.0" layoutY="226.0" text="記住帳號">
+            <font>
+                <Font size="9.0" />
+            </font>
+        </JFXCheckBox>
+        <JFXButton fx:id="btn_Forgot" layoutX="504.0" layoutY="337.0" onAction="#forgotClicked" text="忘記密碼..." />
+        <ImageView fitHeight="17.0" fitWidth="17.0" layoutX="196.0" layoutY="112.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../drawable/profile.png" />
+            </image>
+        </ImageView>
+        <ImageView fitHeight="17.0" fitWidth="17.0" layoutX="195.0" layoutY="166.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../drawable/lock.png" />
+            </image>
+        </ImageView>
+        <JFXProgressBar fx:id="progressBar_Login" prefHeight="5.0" prefWidth="600.0" visible="false" />
+
+    </children>
+</AnchorPane>

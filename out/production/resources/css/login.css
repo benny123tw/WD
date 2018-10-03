@@ -1,0 +1,18 @@
+.bodybg{
+    -fx-background-image: url("/drawable/loginBackground.png");
+    -fx-background-size: 100% 100%;
+}
+
+.registerbg{
+    -fx-background-image: url("/drawable/registerBackground.png");
+        -fx-background-size: 100% 100%;
+}
+.button{
+    -fx-background-color: rgb(74,169,159);
+    -fx-text-fill: WHITE;
+}
+
+.innerbodybg{
+    -fx-background-color: rgb(250,250,250);
+    -fx-background-radius: 10;
+}

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXListView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+
+
+<StackPane fx:id="rootPane" prefHeight="400.0" prefWidth="600.0" stylesheets="@../css/login.css" xmlns="http://javafx.com/javafx/" xmlns:fx="http://javafx.com/fxml/" fx:controller="admin.management">
+   <children>
+      <AnchorPane fx:id="rootAnchor" prefHeight="400.0" prefWidth="600.0" stylesheets="@../css/login.css">
+         <children>
+            <JFXListView fx:id="listView" layoutX="300.0" onKeyPressed="#keyPressedDel" onMouseClicked="#showPopup" prefHeight="400.0" prefWidth="300.0" />
+            <JFXButton fx:id="btn_back" layoutX="14.0" layoutY="14.0" onAction="#backtoMain" text="back" />
+            <JFXButton fx:id="btn_show" layoutX="14.0" layoutY="51.0" onAction="#showDialog" text="show" />
+         </children>
+      </AnchorPane>
+   </children>
+</StackPane>

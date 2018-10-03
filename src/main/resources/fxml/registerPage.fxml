@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXCheckBox?>
+<?import com.jfoenix.controls.JFXProgressBar?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="registerbg" stylesheets="@../css/login.css" xmlns="http://javafx.com/javafx/" xmlns:fx="http://javafx.com/fxml/" fx:controller="login.registerPage">
+    <children>
+        <AnchorPane layoutX="187.0" layoutY="50.0" prefHeight="300.0" prefWidth="226.0" styleClass="innerbodybg" stylesheets="@../css/login.css">
+            <effect>
+                <DropShadow blurType="TWO_PASS_BOX" height="15.0" radius="7.0" width="15.0" />
+            </effect>
+         <children>
+              <JFXTextField fx:id="register_account" focusColor="#4aa99f" labelFloat="true" layoutX="38.0" layoutY="22.0" promptText="帳戶(郵箱)" />
+              <JFXTextField fx:id="register_password" focusColor="#4aa99f" labelFloat="true" layoutX="38.0" layoutY="70.0" promptText="密碼" />
+            <JFXTextField fx:id="register_repassword" focusColor="#4aa99f" labelFloat="true" layoutX="38.0" layoutY="118.0" promptText="重複密碼" />
+              <JFXButton fx:id="btn_Register" layoutX="91.0" layoutY="259.0" onAction="#registerClicked" ripplerFill="RED" stylesheets="@../css/login.css" text="註冊" />
+            <JFXCheckBox fx:id="checkBox_News" layoutX="44.0" layoutY="221.0" text="同意接受最新消息" />
+            <JFXCheckBox fx:id="checkBox_Use" layoutX="44.0" layoutY="193.0" onAction="#checkTerms" text="已經詳讀" />
+              <ImageView fitHeight="17.0" fitWidth="17.0" layoutX="17.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                      <Image url="@../drawable/profile.png" />
+                  </image>
+              </ImageView>
+              <ImageView fitHeight="17.0" fitWidth="17.0" layoutX="17.0" layoutY="75.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                      <Image url="@../drawable/lock.png" />
+                  </image>
+              </ImageView>
+            <Text fx:id="hyperLink_Use" accessibleRole="HYPERLINK" fill="#0f00ff" layoutX="122.0" layoutY="207.0" onMouseClicked="#showTerms" strokeType="OUTSIDE" strokeWidth="0.0" text="使用條款" />
+         </children>
+        </AnchorPane>
+        <Text layoutX="201.0" layoutY="377.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Copyright © 2018 by Benny Yen" />
+        <Text layoutX="209.0" layoutY="393.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mail: benny123tw@gmail.com" />
+        <JFXProgressBar fx:id="progressBar_Login" prefHeight="5.0" prefWidth="600.0" visible="false" />
+      <JFXButton fx:id="btn_BacktoLogin" layoutY="1.0" onAction="#BacktoLogin" text="回到登入" />
+      <Text fx:id="text_Error" fill="RED" layoutX="200.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="請確認郵箱是否輸入正確" textAlignment="CENTER" visible="false" wrappingWidth="200.0" AnchorPane.bottomAnchor="363.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="200.0" AnchorPane.topAnchor="20.0" />
+
+    </children>
+</AnchorPane>

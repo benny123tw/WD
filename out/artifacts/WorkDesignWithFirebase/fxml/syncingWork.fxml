@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Accordion?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="670.0" xmlns="http://javafx.com/javafx/" xmlns:fx="http://javafx.com/fxml/" fx:controller="syncingWork.Controller">
+   <children>
+      <MenuBar fx:id="menubar" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <menus>
+            <Menu mnemonicParsing="false" text="Profile">
+              <items>
+                <MenuItem fx:id="menuprofile_user" mnemonicParsing="false" onAction="#onLogout" />
+                  <MenuItem fx:id="menuprofile_manage" mnemonicParsing="false" onAction="#toManagement" text="Manage Account" visible="false" />
+              </items>
+            </Menu>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem fx:id="menu_open" mnemonicParsing="false" onAction="#openFile" text="Open" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Edit">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Delete" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem fx:id="menu_about" mnemonicParsing="false" onAction="#aboutMe" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <TabPane layoutY="29.0" prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="29.0">
+        <tabs>
+          <Tab text="同步服務作業">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="800.0" prefWidth="600.0">
+                     <children>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="880.0" prefWidth="600.0">
+                           <children>
+                              <TextField fx:id="worker_L" layoutX="141.0" layoutY="14.0" prefHeight="27.0" prefWidth="80.0" />
+                              <TextField fx:id="machine_M" layoutX="141.0" layoutY="61.0" prefHeight="27.0" prefWidth="80.0" />
+                              <TextField fx:id="worker_W" layoutX="141.0" layoutY="108.0" prefHeight="27.0" prefWidth="80.0" />
+                              <TextField fx:id="worker_K1" layoutX="392.0" layoutY="14.0" prefHeight="27.0" prefWidth="80.0" />
+                              <TextField fx:id="machine_K2" layoutX="392.0" layoutY="61.0" prefHeight="27.0" prefWidth="80.0" />
+                              <Text layoutX="14.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" text="加料與卸料（L）" />
+                              <Text layoutX="14.0" layoutY="79.0" strokeType="OUTSIDE" strokeWidth="0.0" text="機器運作時間（M）" />
+                              <Text layoutX="14.0" layoutY="126.0" strokeType="OUTSIDE" strokeWidth="0.0" text="移動時間（W）" />
+                              <Text layoutX="265.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" text="工人工資（K1）" />
+                              <Text layoutX="265.0" layoutY="79.0" strokeType="OUTSIDE" strokeWidth="0.0" text="機器運作成本（K2）" />
+                              <Text layoutX="452.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" text="\$" />
+                              <Text layoutX="452.0" layoutY="79.0" strokeType="OUTSIDE" strokeWidth="0.0" text="\$" />
+                              <Button fx:id="btn_Clear" layoutX="501.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#clearData" text="清空" />
+                              <Button fx:id="btn_Calc" layoutX="501.0" layoutY="61.0" mnemonicParsing="false" onMouseClicked="#calcData" text="計算" />
+                              <TitledPane fx:id="result1_Pane" layoutX="14.0" layoutY="155.0" prefHeight="280.0" prefWidth="300.0" text="結果（1）" visible="false">
+                                 <content>
+                                    <AnchorPane prefHeight="280.0" prefWidth="300.0" style="-fx-background-color: GRAY;">
+                                       <children>
+                                          <Text layoutX="14.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="工人數量" />
+                                          <Text layoutX="14.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" text="機器數量" />
+                                          <Text layoutX="14.0" layoutY="107.0" strokeType="OUTSIDE" strokeWidth="0.0" text="週期時間" />
+                                          <Text layoutX="14.0" layoutY="147.0" strokeType="OUTSIDE" strokeWidth="0.0" text="生產效率（單位／小時）" />
+                                          <Text layoutX="14.0" layoutY="187.0" strokeType="OUTSIDE" strokeWidth="0.0" text="預期成本（$／單位）" />
+                                          <TextField fx:id="result1_WorkerCount" disable="true" layoutX="202.0" layoutY="9.0" prefHeight="27.0" prefWidth="80.0" />
+                                          <TextField fx:id="result1_MachineCount" disable="true" layoutX="202.0" layoutY="49.0" prefHeight="27.0" prefWidth="80.0" />
+                                          <TextField fx:id="result1_CycleTime" disable="true" layoutX="202.0" layoutY="89.0" prefHeight="27.0" prefWidth="80.0" />
+                                          <TextField fx:id="result1_R" disable="true" layoutX="202.0" layoutY="129.0" prefHeight="27.0" prefWidth="80.0" />
+                                          <TextField fx:id="result1_Tec" disable="true" layoutX="202.0" layoutY="169.0" prefHeight="27.0" prefWidth="80.0" />
+                                          <Text layoutX="14.0" layoutY="227.0" strokeType="OUTSIDE" strokeWidth="0.0" text="工人閒置時間（分）" />
+                                          <TextField fx:id="result1_ldle" disable="true" layoutX="202.0" layoutY="209.0" prefHeight="27.0" prefWidth="80.0" />
+                                       </children>
+                                    </AnchorPane>
+                                 </content>
+                              </TitledPane>
+                              <TitledPane fx:id="result2_Pane" layoutX="345.0" layoutY="155.0" prefHeight="280.0" prefWidth="300.0" text="結果（2）" visible="false">
+                                 <content>
+                                    <AnchorPane prefHeight="280.0" prefWidth="300.0" style="-fx-background-color: GRAY;">
+                                       <children>
+                                          <Text layoutX="14.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="工人數量" />
+                                          <Text layoutX="14.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" text="機器數量" />
+                                          <Text layoutX="14.0" layoutY="107.0" strokeType="OUTSIDE" strokeWidth="0.0" text="週期時間" />
+                                          <Text layoutX="14.0" layoutY="147.0" strokeType="OUTSIDE" strokeWidth="0.0" text="生產效率（單位／小時）" />
+                                          <Text layoutX="14.0" layoutY="187.0" strokeType="OUTSIDE" strokeWidth="0.0" text="預期成本（$／單位）" />
+                                          <TextField fx:id="result2_WorkerCount" disable="true" layoutX="202.0" layoutY="9.0" prefHeight="27.0" prefWidth="80.0" />
+                                          <TextField fx:id="result2_MachineCount" disable="true" layoutX="202.0" layoutY="49.0" prefHeight="27.0" prefWidth="80.0" />
+                                          <TextField fx:id="result2_CycleTime" disable="true" layoutX="202.0" layoutY="89.0" prefHeight="27.0" prefWidth="80.0" />
+                                          <TextField fx:id="result2_R" disable="true" layoutX="202.0" layoutY="129.0" prefHeight="27.0" prefWidth="80.0" />
+                                          <TextField fx:id="result2_Tec" disable="true" layoutX="202.0" layoutY="169.0" prefHeight="27.0" prefWidth="80.0" />
+                                          <Text layoutX="14.0" layoutY="227.0" strokeType="OUTSIDE" strokeWidth="0.0" text="每台機器閒置時間（分）" />
+                                          <TextField fx:id="result2_ldle" disable="true" layoutX="202.0" layoutY="209.0" prefHeight="27.0" prefWidth="80.0" />
+                                       </children>
+                                    </AnchorPane>
+                                 </content>
+                              </TitledPane>
+                              <Accordion layoutX="345.0" layoutY="155.0" />
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="隨機服務作業">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <ImageView fx:id="imageView" layoutX="235.0" layoutY="169.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                     </children></AnchorPane>
+            </content>
+          </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>
